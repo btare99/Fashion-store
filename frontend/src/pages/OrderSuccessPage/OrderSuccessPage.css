@@ -1,0 +1,31 @@
+.success-page { padding: 120px 0 80px; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+.success-card { max-width: 560px; margin: 0 auto; text-align: center; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 60px 48px; position: relative; overflow: hidden; }
+.success-card__icon { color: var(--success); animation: bounceIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275); margin-bottom: 24px; }
+@keyframes bounceIn { from { transform: scale(0); opacity: 0; } 60% { transform: scale(1.2); } to { transform: scale(1); opacity: 1; } }
+.success-card__title { font-family: var(--font-display); font-size: 2rem; color: var(--text-primary); margin-bottom: 16px; }
+.success-card__desc { color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem; margin-bottom: 28px; }
+.success-card__order { background: var(--bg-elevated); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; margin-bottom: 24px; }
+.success-card__order-label { display: block; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+.success-card__order-number { font-size: 1.8rem; font-weight: 800; color: var(--gold); letter-spacing: 2px; }
+.success-card__info { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.success-card__info-item { display: flex; align-items: center; gap: 10px; color: var(--text-secondary); font-size: 0.88rem; padding: 10px 16px; background: var(--bg-elevated); border-radius: var(--radius-sm); }
+.success-card__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+/* Confetti */
+.success-card__confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.confetti-piece {
+  position: absolute;
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 2px;
+  top: -20px;
+  left: calc(var(--i) * 8%);
+  animation: confettiFall 3s ease-in calc(var(--i) * 0.15s) both;
+  opacity: 0;
+}
+.confetti-piece:nth-child(odd) { background: var(--success); border-radius: 50%; }
+.confetti-piece:nth-child(3n) { background: #8b5cf6; }
+@keyframes confettiFall {
+  0% { transform: translateY(0) rotate(0); opacity: 1; }
+  100% { transform: translateY(600px) rotate(720deg); opacity: 0; }
+}
+@media (max-width: 600px) { .success-card { padding: 40px 24px; } .success-card__actions { flex-direction: column; } .success-card__actions .btn { width: 100%; } }
